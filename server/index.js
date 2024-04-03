@@ -7,11 +7,11 @@ const estimateController = require('./controllers/estimatecontroller.js');
 const dbcontroller = require('./controllers/databasecontroller.js');
 const authcontroller = require('./controllers/authcontroller.js');
 const databasecontroller = require('./controllers/databasecontroller.js');
-const cors = require('cors');
+// const cors = require('cors');
 
 const htmlDirectory = path.join(__dirname, 'public', 'index.html');
 // Do we need a CSS directory?
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
