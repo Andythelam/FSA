@@ -9,7 +9,7 @@ const authcontroller = require('./controllers/authcontroller.js');
 const databasecontroller = require('./controllers/databasecontroller.js');
 // const cors = require('cors');
 
-const htmlDirectory = path.join(__dirname, 'public', 'index.html');
+// const htmlDirectory = path.join(__dirname, 'public', 'index.html');
 // Do we need a CSS directory?
 // app.use(cors());
 app.use(express.json());
@@ -19,9 +19,9 @@ const apiRouter = express.Router();
 app.use('/api', apiRouter);
 
 // serve HTML directory at get // does this need router ??
-apiRouter.get('/', (req, res) => {
-  return res.status(200).sendFile(htmlDirectory);
-});
+// apiRouter.get('/', (req, res) => {
+//   return res.status(200).sendFile(htmlDirectory);
+// });
 
 // no auth get request for managing basic estimate on landing page
 apiRouter.post('/estimate', estimateController.estimate, (req, res) => {
@@ -105,7 +105,7 @@ apiRouter.post(
   '/calculateTaxes',
   estimateController.taxCalculator,
   (req, res) => {
-    return res.status(200).json({ financials: res.locals.financials });
+    return res.status(200).json({financials: res.locals.financials});
   }
 );
 
@@ -114,7 +114,7 @@ app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
-    message: { err: 'An error occurred' },
+    message: {err: 'An error occurred'},
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);
