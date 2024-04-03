@@ -4,7 +4,7 @@ const estimateController = {
     // do we want to produce an estimate if less than 3 years are provided?
     const { expense23, expense22, expense21 } = req.body;
 
-    console.log(expense21, expense22, expense23);
+    // console.log(expense21, expense22, expense23);
 
     const parsedExpense23 = parseFloat(expense23);
     const parsedExpense22 = parseFloat(expense22);
@@ -28,13 +28,13 @@ const estimateController = {
     const sum = parsedExpense21 + parsedExpense22 + parsedExpense23;
     let userAvg = sum / length;
     userAvg = userAvg.toFixed(2);
-    console.log('userAvg ', userAvg);
+    // console.log('userAvg ', userAvg);
 
     // static amount
     const maxCont = 3050;
     let moneyLost = maxCont - userAvg;
     moneyLost = moneyLost.toFixed(2);
-    console.log('moneyLost ', moneyLost);
+    // console.log('moneyLost ', moneyLost);
 
     // need to update avgTax to dynamic data
     const avgTax = 0.25;
