@@ -4,7 +4,6 @@ const databasecontroller = {
     console.log('getuser controller');
     try {
       const userName = res.locals.username;
-      console.log('name💘💘', userName);
 
       if (!userName) {
         return next({
@@ -36,43 +35,7 @@ const databasecontroller = {
     }
   },
 
-  // async makeuser(req, res, next) {
-
-  //   console.log('makeuser controller invoked')
-  //   try {
-  //     const {
-  //       username,
-  //       password,
-  //     } = req.body;
-
-  //     // console.log('😀 😃 😄 😁 😆 😅 😂 🤣 🥲 🥹 ☺️ 😊 😇 🙂 🙃 😉 😌 😍',req.body)
-
-  //     // manage error for incomplete user creation
-  //     if (!username || !age || !salary) {
-  //       next({
-  //         status: 400,
-  //         error: 'Name, age, and salary required.',
-  //       });
-  //     }
-
-  //     // create new user
-  //     const insertQuery = `INSERT INTO fsa_app_db (username, hashpassword) VALUES ($1, $2)`;
-  //     const insertParams = [
-  //       username,
-  //       password
-  //     ];
-
-  //     // const result = await client.query(insertQuery, insertParams);
-  //     // res.locals.message = 'User creation succesful.';
-  //     return next();
-  //   } catch (error) {
-  //     return next({
-  //       status: 500,
-  //       error: error,
-  //     });
-  //   }
-  // },
-
+ 
   async updateUser(req, res, next) {
     try {
       const {
@@ -91,7 +54,6 @@ const databasecontroller = {
       const selectParams = [username];
 
       const userResults = await client.query(selectQuery, selectParams);
-      console.log('line😍95😍😍😍😍😍😍username', username)
       if (userResults.rows.length === 0) {
         return next({
           status: 404,
@@ -125,8 +87,6 @@ const databasecontroller = {
         updatedMedCost2,
         updatedMedCost3
       ];
-
-      console.log('😃 😄 😁 😆 😅 ',updateParams)
       
       const updateQuery = `
                 UPDATE fsa_app_db
@@ -144,8 +104,7 @@ const databasecontroller = {
         const updateResult = await client.query(updateQuery, updateParams);
         console.log("successfully updated entry")
       } catch (err) {
-        console.log('😀 😃 😄 😁 😆 😅 😂 🤣 🥲 🥹 ☺️ 😊 😇 🙂 🙃 😉 😌 😍 UNABLE TO UPDATE DATA')
-        console.log('ERRRRRRRR', err)
+        console.log('Error', err)
       }
 
 
