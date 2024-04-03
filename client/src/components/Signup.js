@@ -21,7 +21,7 @@ const Signup = () => {
     };
 
     // POST req to '/api/signup' route in server
-    fetch(`${process.env.REACT_APP_FETCH_URL}/api/signup`, requestOptions)
+    fetch(`https://fsa-server.vercel.app/api/signup`, requestOptions)
       .then(async (response) => {
         if (!response.ok) {
           const error = (await response.json()).err || 'An unexpected error occurred oh nose!';
