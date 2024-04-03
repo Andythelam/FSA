@@ -21,7 +21,7 @@ const SignIn = () => {
     console.log(username, password);
     // e.target.reset();
 
-    fetch('api/login', {
+    fetch('http://localhost:3000/api/login', { //change URL to hosted domain
       method: 'POST',
       body: JSON.stringify({
         username,
