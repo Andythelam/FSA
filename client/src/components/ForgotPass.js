@@ -19,7 +19,7 @@ const ForgotPassword = () => {
 
     // Assuming we have an API endpoint 'api/forgot-password' that handles the password reset logic
     try { // MUST CHANGE FETCH DEPENDING ON HOSTED URL
-      const response = await fetch(`${process.env.REACT_APP_FETCH_URL}api/forgot-password`, {
+      const response = await fetch(`https://fsa-server.vercel.app/api/forgot-password`, {
         method: 'POST',
         body: JSON.stringify({ email }),
         headers: {
