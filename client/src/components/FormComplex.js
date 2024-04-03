@@ -54,10 +54,10 @@ const FormComplex = () => {
     const fetchData = async () => {
       try {
         const response = await axios.post('https://fsa-server.vercel.app/api/complexUserInfo', formData);
-        const responseTax = await axios.post('api/calculateTaxes', {salary: formData.salary});
+        const responseTax = await axios.post('https://fsa-server.vercel.app/api/calculateTaxes', {salary: formData.salary});
         
         
-        console.log(responseTax.data)
+        // console.log(responseTax.data)
 
         const responseProp = [response.data, responseTax.data]
         navigate('/ResultBoxComplex', {state: responseProp});
