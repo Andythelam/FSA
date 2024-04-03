@@ -18,8 +18,8 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     // Assuming we have an API endpoint 'api/forgot-password' that handles the password reset logic
-    try {
-      const response = await fetch('api/forgot-password', {
+    try { // MUST CHANGE FETCH DEPENDING ON HOSTED URL
+      const response = await fetch(`${process.env.REACT_APP_FETCH_URL}api/forgot-password`, {
         method: 'POST',
         body: JSON.stringify({ email }),
         headers: {

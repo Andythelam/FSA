@@ -21,7 +21,7 @@ const Signup = () => {
     };
 
     // POST req to '/api/signup' route in server
-    fetch('/api/signup', requestOptions)
+    fetch(`${process.env.REACT_APP_FETCH_URL}/api/signup`, requestOptions)
       .then(async (response) => {
         if (!response.ok) {
           const error = (await response.json()).err || 'An unexpected error occurred oh nose!';
