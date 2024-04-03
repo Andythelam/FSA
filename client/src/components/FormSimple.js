@@ -23,7 +23,7 @@ const FormSimple = ({setServerResponse}) => {
       expense21: form.expense21,
     };
     console.log('DATA', data);
-    fetch('api/estimate', {
+    fetch(`${process.env.REACT_APP_FETCH_URL}/api/estimate`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
