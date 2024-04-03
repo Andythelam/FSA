@@ -78,7 +78,7 @@ authcontroller.signup = async (req, res, next) => {
 
     // create new user with hashed password
     const hashedPassword = await hashPassword(password);
-    console.log(hashedPassword);
+    // console.log(hashedPassword);
     const insertQuery = `
             insert into fsa_app_db (
                 username
@@ -142,12 +142,12 @@ authcontroller.login = async (req, res, next) => {
       return;
     }
 
-    console.log('💘💘💘userDetails', userDetails.rows[0]);
+    // console.log('💘💘💘userDetails', userDetails.rows[0]);
 
     const dbUsername = userDetails.rows[0].username;
     const dbPassword = userDetails.rows[0].hashpassword;
 
-    console.log('🚫🚫🚫🚫🚫', dbUsername, dbPassword, username, password);
+    // console.log('🚫🚫🚫🚫🚫', dbUsername, dbPassword, username, password);
 
     // bcrypt compare?
     bcrypt
@@ -166,7 +166,7 @@ authcontroller.login = async (req, res, next) => {
         console.log(err.message);
       });
 
-    console.log('💘💘💘', username);
+    // console.log('💘💘💘', username);
 
     // if (dbUsername && password === dbPassword) {
     //   res.locals.user = username;
@@ -285,7 +285,7 @@ authcontroller.isLoggedIn = async (req, res, next) => {
   try {
     // get from cookies and check with jwt's built in verify method
     const { token } = req.cookies;
-    console.log(token);
+    // console.log(token);
     const payload = jwt.verify(token, process.env.JWT_SECRET);
     // throws an error if can't verify
     next();
