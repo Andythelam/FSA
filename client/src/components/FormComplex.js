@@ -53,16 +53,13 @@ const FormComplex = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.post('api/complexUserInfo', formData);
-        console.log('🤣 🥲formdata', formData)
-        console.log('🤣 🥲formdata', formData.salary)
+        const response = await axios.post('https://fsa-server.vercel.app/api/complexUserInfo', formData);
         const responseTax = await axios.post('api/calculateTaxes', {salary: formData.salary});
         
         
         console.log(responseTax.data)
 
         const responseProp = [response.data, responseTax.data]
-        console.log('responseProp😂 🤣 🥲 🥹 😊 😇 🙂 🙃 😉 😌 😍', responseProp)
         navigate('/ResultBoxComplex', {state: responseProp});
       } catch (err) {
         alert(err);
@@ -73,44 +70,6 @@ const FormComplex = () => {
       fetchData();
     }
   }, [fetched]);
-
-
-  // const handleSubmit = () => {
-  //   // console.log(form);
-  //   // const data = {
-  //   //   name: '',
-  //   //   age: '',
-  //   //   salary: '',
-  //   //   taxBracket: '',
-  //   //   pastExpenses: '',
-  //   //   employerContrib: '',
-  //   // };
-
-  //   // fetch('api/users')
-  //   fetch('api/complexUserInfo', {
-  //     method: 'POST',
-  //     body: JSON.stringify(dummyData),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   })
-  //     .then((res) => {
-  //       console.log('😂 🤣 🥲 🥹 😊 😇 🙂 🙃 😉 😌 😍')
-  //       // const navigate = useNavigate();
-  //       // navigate('/');
-  //       res.json();
-  //       console.log("RES", res);
-  //     })
-  //     .then((json) => console.log("JSON", json))
-  //     .then((expenses) => {
-  //       console.log("EXPENSES", expenses);
-  //     })
-  //     .catch((err) => {
-  //       console.log('testing error');
-  //       alert(err)
-  //       console.log(err);
-  //     });
-  // };
 
   return (
     // conditional
